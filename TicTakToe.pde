@@ -12,6 +12,12 @@ void setup() {
 void draw() {
   background(200);
   drawBoard();
+  winnerScreen();
+      rectMode(CENTER);
+
+      textSize(228);
+    rect(300, 300, 400, 100);
+    text("hej",0,0,600,600);
 }
 
 void mouseReleased() {
@@ -79,8 +85,9 @@ boolean checkWin() {
 }
 
 void winnerScreen() {
-  if(checkWin()){
-  
+  if (checkWin()) {
+    rectMode(CENTER);
+    rect(300, 300, 400, 100);
+    text("hej",300,300);
   }
-  
 }
