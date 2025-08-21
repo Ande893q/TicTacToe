@@ -40,73 +40,91 @@ void mouseReleased() {
   if (mouseX<200 && mouseY<200) {
     if (playerTurn) {
       gridOneX = true;
+      board[0][0]='x';
       playerTurn = false;
     } else {
       gridOneY = true;
+      board[0][0]='y';
       playerTurn = true;
     }
   } else if (mouseX<400 && mouseY<200) {
     if (playerTurn) {
       gridTwoX = true;
+      board[1][0]='x';
       playerTurn = false;
     } else {
       gridTwoY = true;
+      board[1][0]='y';
       playerTurn = true;
     }
   } else if (mouseX<600 && mouseY<200) {
     if (playerTurn) {
       gridThreeX = true;
+      board[2][0]='x';
       playerTurn = false;
     } else {
       gridThreeY = true;
+      board[2][0]='y';
       playerTurn = true;
     }
   } else if (mouseX<200 && mouseY<400) {
     if (playerTurn) {
       gridFourX = true;
+      board[0][1]='x';
       playerTurn = false;
     } else {
       gridFourY = true;
+      board[0][1]='y';
       playerTurn = true;
     }
   } else if (mouseX<400 && mouseY<400) {
     if (playerTurn) {
       gridFiveX = true;
+      board[1][1]='x';
       playerTurn = false;
     } else {
       gridFiveY = true;
+      board[1][1]='y';
       playerTurn = true;
     }
   } else if (mouseX<600 && mouseY<400) {
     if (playerTurn) {
       gridSixX = true;
+      board[2][1]='x';
       playerTurn = false;
     } else {
       gridSixY = true;
+      board[2][1]='y';
       playerTurn = true;
     }
   } else if (mouseX<200 && mouseY<600) {
     if (playerTurn) {
       gridSevenX = true;
+      board[0][2]='x';
       playerTurn = false;
     } else {
       gridSevenY = true;
+      board[0][2]='y';
       playerTurn = true;
     }
   } else if (mouseX<400 && mouseY<600) {
     if (playerTurn) {
       gridEightX = true;
+      board[1][2]='x';
       playerTurn = false;
     } else {
       gridEightY = true;
+      board[1][2]='y';
       playerTurn = true;
     }
   } else if (mouseX<600 && mouseY<600) {
     if (playerTurn) {
       gridNineX = true;
+      board[2][2]='x';
       playerTurn = false;
     } else {
       gridNineY = true;
+      board[2][2]='y';
       playerTurn = true;
     }
   }
@@ -232,6 +250,6 @@ void winnerScreen() {
     fill(200);
     rect(300, 300, 400, 100);
     fill(1);
-    text("Kryds Vinder", 175, 315);
+    text("Vinder!", 175, 315);
   }
 }
