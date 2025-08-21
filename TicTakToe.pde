@@ -45,23 +45,70 @@ void mouseReleased() {
       gridOneY = true;
       playerTurn = true;
     }
-
   } else if (mouseX<400 && mouseY<200) {
-    println("hej hej");
+    if (playerTurn) {
+      gridTwoX = true;
+      playerTurn = false;
+    } else {
+      gridTwoY = true;
+      playerTurn = true;
+    }
   } else if (mouseX<600 && mouseY<200) {
-    println("hej hej hej");
+    if (playerTurn) {
+      gridThreeX = true;
+      playerTurn = false;
+    } else {
+      gridThreeY = true;
+      playerTurn = true;
+    }
   } else if (mouseX<200 && mouseY<400) {
-    println("haj");
+    if (playerTurn) {
+      gridFourX = true;
+      playerTurn = false;
+    } else {
+      gridFourY = true;
+      playerTurn = true;
+    }
   } else if (mouseX<400 && mouseY<400) {
-    println("haj haj");
+    if (playerTurn) {
+      gridFiveX = true;
+      playerTurn = false;
+    } else {
+      gridFiveY = true;
+      playerTurn = true;
+    }
   } else if (mouseX<600 && mouseY<400) {
-    println("haj haj haj");
+    if (playerTurn) {
+      gridSixX = true;
+      playerTurn = false;
+    } else {
+      gridSixY = true;
+      playerTurn = true;
+    }
   } else if (mouseX<200 && mouseY<600) {
-    println("hij");
+    if (playerTurn) {
+      gridSevenX = true;
+      playerTurn = false;
+    } else {
+      gridSevenY = true;
+      playerTurn = true;
+    }
   } else if (mouseX<400 && mouseY<600) {
-    println("hij hij");
+    if (playerTurn) {
+      gridEightX = true;
+      playerTurn = false;
+    } else {
+      gridEightY = true;
+      playerTurn = true;
+    }
   } else if (mouseX<600 && mouseY<600) {
-    println("hij hij hij");
+    if (playerTurn) {
+      gridNineX = true;
+      playerTurn = false;
+    } else {
+      gridNineY = true;
+      playerTurn = true;
+    }
   }
 }
 
@@ -93,65 +140,65 @@ void drawPlays() {
   }
 
   if (gridTwoY) {
-    circle(100, 100, 150);
+    circle(300, 100, 150);
   }
   if (gridTwoX) {
-    line(0, 0, 200, 200);
-    line(0, 200, 200, 0);
+    line(200, 200, 400, 0);
+    line(400, 200, 200, 0);
   }
 
   if (gridThreeY) {
-    circle(100, 100, 150);
+    circle(500, 100, 150);
   }
   if (gridThreeX) {
-    line(0, 0, 200, 200);
-    line(0, 200, 200, 0);
+    line(400, 200, 600, 0);
+    line(600, 200, 400, 0);
   }
 
   if (gridFourY) {
-    circle(100, 100, 150);
+    circle(100, 300, 150);
   }
   if (gridFourX) {
-    line(0, 0, 200, 200);
-    line(0, 200, 200, 0);
+    line(0, 200, 200, 400);
+    line(0, 400, 200, 200);
   }
 
   if (gridFiveY) {
-    circle(100, 100, 150);
+    circle(300, 300, 150);
   }
   if (gridFiveX) {
-    line(0, 0, 200, 200);
-    line(0, 200, 200, 0);
+    line(200, 200, 400, 400);
+    line(200, 400, 400, 200);
   }
 
   if (gridSixY) {
-    circle(100, 100, 150);
+    circle(500, 300, 150);
   }
   if (gridSixX) {
-    line(0, 0, 200, 200);
-    line(0, 200, 200, 0);
+    line(400, 200, 600, 400);
+    line(400, 400, 600, 200);
   }
 
   if (gridSevenY) {
-    circle(100, 100, 150);
+    circle(100, 500, 150);
   }
   if (gridSevenX) {
-    line(0, 0, 200, 200);
-    line(0, 200, 200, 0);
+    line(0, 400, 200, 600);
+    line(0, 600, 200, 400);
   }
   if (gridEightY) {
-    circle(100, 100, 150);
+    circle(300, 500, 150);
   }
   if (gridEightX) {
-    line(0, 0, 200, 200);
-    line(0, 200, 200, 0);
+    line(200, 400, 400, 600);
+    line(200, 600, 400, 400);
   }
   if (gridNineY) {
-    circle(100, 100, 150);
+    circle(500, 500, 150);
   }
   if (gridNineX) {
-    line(0, 0, 200, 200);
-    line(0, 200, 200, 0);
+    line(400, 400, 600, 600);
+    line(400, 600, 600, 400);
   }
 }
 boolean checkWin() {
@@ -180,8 +227,6 @@ boolean checkWin() {
 
 void winnerScreen() {
   if (checkWin()) {
-
-
     rectMode(CENTER);
     textSize(50);
     fill(200);
