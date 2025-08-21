@@ -1,15 +1,24 @@
 char[][] board = new char[3][3];
 boolean playerTurn = true;
-boolean gridOne;
-boolean gridTwo;
-boolean gridThree;
-boolean gridFour;
-boolean gridFive;
-boolean gridSix;
-boolean gridSeven;
-boolean gridEight;
-boolean gridNine;
+boolean gridOneX;
+boolean gridTwoX;
+boolean gridThreeX;
+boolean gridFourX;
+boolean gridFiveX;
+boolean gridSixX;
+boolean gridSevenX;
+boolean gridEightX;
+boolean gridNineX;
 
+boolean gridOneY;
+boolean gridTwoY;
+boolean gridThreeY;
+boolean gridFourY;
+boolean gridFiveY;
+boolean gridSixY;
+boolean gridSevenY;
+boolean gridEightY;
+boolean gridNineY;
 
 int fieldHeight;
 int fieldWidth;
@@ -27,20 +36,16 @@ void draw() {
 }
 
 void mouseReleased() {
-  boolean whoTurn=true;
 
   if (mouseX<200 && mouseY<200) {
-    if (whoTurn) {
-      gridOne=true;
-      whoTurn=false;
+    if (playerTurn) {
+      gridOneX = true;
+      playerTurn = false;
+    } else {
+      gridOneY = true;
+      playerTurn = true;
     }
 
-    if (!whoTurn) {
-
-
-      whoTurn=true;
-    }
-    println("hej");
   } else if (mouseX<400 && mouseY<200) {
     println("hej hej");
   } else if (mouseX<600 && mouseY<200) {
@@ -79,47 +84,109 @@ void drawBoard() {
 }
 
 void drawPlays() {
-  if (!gridOne) {
-circle(150,150,30);
+  if (gridOneY) {
+    circle(100, 100, 150);
   }
-  if (gridOne) {
+  if (gridOneX) {
+    line(0, 0, 200, 200);
+    line(0, 200, 200, 0);
+  }
+
+  if (gridTwoY) {
+    circle(100, 100, 150);
+  }
+  if (gridTwoX) {
+    line(0, 0, 200, 200);
+    line(0, 200, 200, 0);
+  }
+
+  if (gridThreeY) {
+    circle(100, 100, 150);
+  }
+  if (gridThreeX) {
+    line(0, 0, 200, 200);
+    line(0, 200, 200, 0);
+  }
+
+  if (gridFourY) {
+    circle(100, 100, 150);
+  }
+  if (gridFourX) {
+    line(0, 0, 200, 200);
+    line(0, 200, 200, 0);
+  }
+
+  if (gridFiveY) {
+    circle(100, 100, 150);
+  }
+  if (gridFiveX) {
+    line(0, 0, 200, 200);
+    line(0, 200, 200, 0);
+  }
+
+  if (gridSixY) {
+    circle(100, 100, 150);
+  }
+  if (gridSixX) {
+    line(0, 0, 200, 200);
+    line(0, 200, 200, 0);
+  }
+
+  if (gridSevenY) {
+    circle(100, 100, 150);
+  }
+  if (gridSevenX) {
+    line(0, 0, 200, 200);
+    line(0, 200, 200, 0);
+  }
+  if (gridEightY) {
+    circle(100, 100, 150);
+  }
+  if (gridEightX) {
+    line(0, 0, 200, 200);
+    line(0, 200, 200, 0);
+  }
+  if (gridNineY) {
+    circle(100, 100, 150);
+  }
+  if (gridNineX) {
     line(0, 0, 200, 200);
     line(0, 200, 200, 0);
   }
 }
-  boolean checkWin() {
-    boolean winner=false;
+boolean checkWin() {
+  boolean winner=false;
 
-    for (int i=0; i<3; i++) {
-      if (board[0][i]==board[1][i] && board[1][i]==board[2][i] && board[0][i]!=' ') {
-        winner=true;
-      }
-    }
-    for (int i=0; i<3; i++) {
-      if (board[i][0]==board[i][1] && board[i][1]==board[i][2] && board[i][0]!=' ') {
-        winner=true;
-      }
-    }
-    if (board[0][0]==board[1][1] && board[1][1]==board[2][2] && board[0][0]!=' ') {
+  for (int i=0; i<3; i++) {
+    if (board[0][i]==board[1][i] && board[1][i]==board[2][i] && board[0][i]!=' ') {
       winner=true;
     }
-
-    if (board[0][2]==board[1][1] && board[1][1]==board[2][0] && board[1][1]!=' ') {
+  }
+  for (int i=0; i<3; i++) {
+    if (board[i][0]==board[i][1] && board[i][1]==board[i][2] && board[i][0]!=' ') {
       winner=true;
     }
-
-    return winner;
+  }
+  if (board[0][0]==board[1][1] && board[1][1]==board[2][2] && board[0][0]!=' ') {
+    winner=true;
   }
 
-  void winnerScreen() {
-    if (checkWin()) {
-
-
-      rectMode(CENTER);
-      textSize(50);
-      fill(200);
-      rect(300, 300, 400, 100);
-      fill(1);
-      text("Kryds Vinder", 175, 315);
-    }
+  if (board[0][2]==board[1][1] && board[1][1]==board[2][0] && board[1][1]!=' ') {
+    winner=true;
   }
+
+  return winner;
+}
+
+void winnerScreen() {
+  if (checkWin()) {
+
+
+    rectMode(CENTER);
+    textSize(50);
+    fill(200);
+    rect(300, 300, 400, 100);
+    fill(1);
+    text("Kryds Vinder", 175, 315);
+  }
+}
