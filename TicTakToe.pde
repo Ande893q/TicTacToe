@@ -1,5 +1,15 @@
 char[][] board = new char[3][3];
 boolean playerTurn = true;
+boolean gridOne;
+boolean gridTwo;
+boolean gridThree;
+boolean gridFour;
+boolean gridFive;
+boolean gridSix;
+boolean gridSeven;
+boolean gridEight;
+boolean gridNine;
+
 
 int fieldHeight;
 int fieldWidth;
@@ -13,10 +23,23 @@ void draw() {
   background(200);
   drawBoard();
   winnerScreen();
+  drawPlays();
 }
 
 void mouseReleased() {
+  boolean whoTurn=true;
+
   if (mouseX<200 && mouseY<200) {
+    if (whoTurn) {
+      gridOne=true;
+      whoTurn=false;
+    }
+
+    if (!whoTurn) {
+
+
+      whoTurn=true;
+    }
     println("hej");
   } else if (mouseX<400 && mouseY<200) {
     println("hej hej");
@@ -55,45 +78,48 @@ void drawBoard() {
   line(600, 400, 0, 400);
 }
 
-boolean checkWin() {
-  boolean winner=false;
-
-  for (int i=0; i<3; i++) {
-    if (board[0][i]==board[1][i] && board[1][i]==board[2][i] && board[0][i]!=' ') {
-      winner=true;
-    }
+void drawPlays() {
+  if (!gridOne) {
+circle(150,150,30);
   }
-  for (int i=0; i<3; i++) {
-    if (board[i][0]==board[i][1] && board[i][1]==board[i][2] && board[i][0]!=' ') {
-      winner=true;
-    }
-  }
-  if (board[0][0]==board[1][1] && board[1][1]==board[2][2] && board[0][0]!=' ') {
-    winner=true;
-  }
-
-  if (board[0][2]==board[1][1] && board[1][1]==board[2][0] && board[1][1]!=' ') {
-    winner=true;
-  }
-
-  return winner;
-}
-
-void winnerScreen() {
-  if (checkWin()) {
-    rectMode(CENTER);
-    textSize(50);
-    fill(200);
-    rect(300, 300, 400, 100);
-    fill(1);
-    text("Kryds Vinder", 175, 315);
-  }
-  if (!checkWin()) {
-    rectMode(CENTER);
-    textSize(50);
-    fill(200);
-    rect(300, 300, 400, 100);
-    fill(1);
-    text("Cirkel Vinder", 175, 315);
+  if (gridOne) {
+    line(0, 0, 200, 200);
+    line(0, 200, 200, 0);
   }
 }
+  boolean checkWin() {
+    boolean winner=false;
+
+    for (int i=0; i<3; i++) {
+      if (board[0][i]==board[1][i] && board[1][i]==board[2][i] && board[0][i]!=' ') {
+        winner=true;
+      }
+    }
+    for (int i=0; i<3; i++) {
+      if (board[i][0]==board[i][1] && board[i][1]==board[i][2] && board[i][0]!=' ') {
+        winner=true;
+      }
+    }
+    if (board[0][0]==board[1][1] && board[1][1]==board[2][2] && board[0][0]!=' ') {
+      winner=true;
+    }
+
+    if (board[0][2]==board[1][1] && board[1][1]==board[2][0] && board[1][1]!=' ') {
+      winner=true;
+    }
+
+    return winner;
+  }
+
+  void winnerScreen() {
+    if (checkWin()) {
+
+
+      rectMode(CENTER);
+      textSize(50);
+      fill(200);
+      rect(300, 300, 400, 100);
+      fill(1);
+      text("Kryds Vinder", 175, 315);
+    }
+  }
