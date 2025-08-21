@@ -31,8 +31,8 @@ void setup() {
 void draw() {
   background(200);
   drawBoard();
-  winnerScreen();
   drawPlays();
+  winnerScreen();
 }
 
 void mouseReleased() {
