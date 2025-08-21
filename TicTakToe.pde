@@ -13,11 +13,6 @@ void draw() {
   background(200);
   drawBoard();
   winnerScreen();
-      rectMode(CENTER);
-
-      textSize(228);
-    rect(300, 300, 400, 100);
-    text("hej",0,0,600,600);
 }
 
 void mouseReleased() {
@@ -87,7 +82,18 @@ boolean checkWin() {
 void winnerScreen() {
   if (checkWin()) {
     rectMode(CENTER);
+    textSize(50);
+    fill(200);
     rect(300, 300, 400, 100);
-    text("hej",300,300);
+    fill(1);
+    text("Kryds Vinder", 175, 315);
+  }
+  if (!checkWin()) {
+    rectMode(CENTER);
+    textSize(50);
+    fill(200);
+    rect(300, 300, 400, 100);
+    fill(1);
+    text("Cirkel Vinder", 175, 315);
   }
 }
